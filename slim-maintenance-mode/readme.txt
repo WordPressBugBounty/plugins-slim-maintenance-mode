@@ -1,8 +1,8 @@
 === Slim Maintenance Mode ===
 Contributors: wpdoc.de
 Tags: maintenance, unavailable, admin, maintenance mode, cache
-Requires at least: 3.5
-Tested up to: 6.6
+Requires at least: 4.6
+Tested up to: 6.8
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -42,6 +42,9 @@ Please visit the [plugins page](https://translate.wordpress.org/projects/wp-plug
 2. Maintenance message for website visitors in German
 
 == Changelog ==
+= 1.4.4 =
+* Removed unnecessary loading of plugin textdomain
+
 = 1.4.3 =
 * Fixed a bug that prevented logging into the administration area
 
@@ -96,6 +99,9 @@ Please visit the [plugins page](https://translate.wordpress.org/projects/wp-plug
 * German translation
 
 == Upgrade Notice ==
+= 1.4.4 =
+A now unnecessary function in the plugin code has been removed. The plugin now requires at least WordPress 4.6.
+
 = 1.4 =
 Web feeds (e.g. RSS, Atom) are now disabled when the plugin is active.
 
