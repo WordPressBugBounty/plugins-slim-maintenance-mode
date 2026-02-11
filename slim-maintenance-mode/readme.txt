@@ -2,7 +2,7 @@
 Contributors: wpdoc.de
 Tags: maintenance, unavailable, admin, maintenance mode, cache
 Requires at least: 4.6
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: trunk
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
