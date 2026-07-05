@@ -3,7 +3,7 @@
  * Plugin Name: Slim Maintenance Mode
  * Plugin URI: https://wpdoc.de/plugins/
  * Description: A lightweight solution for scheduled maintenance. Simply activate the plugin and only administrators can see the website.
- * Version: 1.4.4
+ * Version: 1.4.6
  * Author: Johannes Ries
  * Author URI: https://wpdoc.de
  * Text Domain: slim-maintenance-mode
@@ -108,7 +108,7 @@ register_activation_hook(   __FILE__, 'slim_maintenance_mode_on_activation' );
 register_deactivation_hook( __FILE__, 'slim_maintenance_mode_on_deactivation' );
 
 /**
- * Alert message when active
+ * Alert message in backend when the plugin is active
 */
 function slim_maintenance_mode_admin_notices() {
 	echo '<div id="message" class="error fade"><p>' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . ' <a href="plugins.php?s=Slim Maintenance Mode&plugin_status=all">' . __( 'Deactivate it, when work is done.', 'slim-maintenance-mode' ) . '</a></p></div>';
@@ -116,13 +116,26 @@ function slim_maintenance_mode_admin_notices() {
 if ( is_multisite() && is_plugin_active_for_network( plugin_basename( __FILE__ ) ) )
 add_action( 'network_admin_notices', 'slim_maintenance_mode_admin_notices' );
 add_action( 'admin_notices', 'slim_maintenance_mode_admin_notices' );
-add_filter( 'login_message',
-	function() {
-		return '<div id="login_error">' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . '</div>';
-	} );
 
 /**
- * Maintenance message when active
+ * Alert message above the login form when the plugin is active
+*/
+add_filter('login_message', function ($message) {
+  if ( ! isset($message) || $message === '' ) {
+		return '<div class="notice"><p>' .
+			__('<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode')
+			. '</p></div>';
+	}
+  else {
+	return '<div class="notice"><p>' .
+		__('<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode')
+		. '</p></div>' . $message;
+    }
+  } 
+);
+
+/**
+ * Maintenance message when the plugin is active
 */
 function slim_maintenance_mode()
 {

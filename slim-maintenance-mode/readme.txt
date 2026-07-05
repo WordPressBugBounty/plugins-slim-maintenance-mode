@@ -42,6 +42,12 @@ Please visit the [plugins page](https://translate.wordpress.org/projects/wp-plug
 2. Maintenance message for website visitors in German
 
 == Changelog ==
+= 1.4.6 =
+* Fixed PHP warning when using login_message
+
+= 1.4.5 =
+* Fixed a display bug at the login form when plugin is active
+
 = 1.4.4 =
 * Removed unnecessary loading of plugin textdomain
 
@@ -99,6 +105,12 @@ Please visit the [plugins page](https://translate.wordpress.org/projects/wp-plug
 * German translation
 
 == Upgrade Notice ==
+= 1.4.6 =
+A small bug, which caused a PHP warning at the login page, was fixed.
+
+= 1.4.5 =
+Information showing that maintenance mode is active is now displayed correctly above the login form again.
+
 = 1.4.4 =
 A now unnecessary function in the plugin code has been removed. The plugin now requires at least WordPress 4.6.
 
